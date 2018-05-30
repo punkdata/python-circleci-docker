@@ -26,7 +26,7 @@ jobs:
           command: |
             . helloworld/bin/activate
             pyinstaller -F hello_world.py
-      - deploy:
-          name: Deploy to Digital Ocean
+      - run:
+          name: Deploy to hello.dpunks.org
           command: |
-            scp project/dist/hello_world root@hello.dpunks.org:/tmp/
+            scp -o StrictHostKeyChecking=no project/dist/hello_world root@hello.dpunks.org:/tmp/
