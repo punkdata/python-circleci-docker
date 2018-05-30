@@ -9,8 +9,7 @@ jobs:
         - checkout
         - run:
             name: Create Python VirtualEnv
-            command: virtualenv helloworld && . virtualenv/bin/activate && pip install FLASK_CONFIG
+            command: virtualenv helloworld && . virtualenv/helloworld/bin/activate && pip install FLASK_CONFIG
         - run:
             name: Run Tests
-            command: |
-              python test_hello_world.py
+            command: python test_hello_world.py
