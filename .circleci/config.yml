@@ -31,4 +31,4 @@ jobs:
           name: Deploy to hello.dpunks.org
           command: |
             scp -o StrictHostKeyChecking=no /tmp/hello_world root@hello.dpunks.org:/tmp/
-            ssh -o StrictHostKeyChecking=no root@hello.dpunks.org "mv /tmp/hello_world ~/; nohup ./hello_world; ps -ef |grep hello_world"
+            ssh -o StrictHostKeyChecking=no root@hello.dpunks.org "mv /tmp/hello_world ~/; nohup ./hello_world &; ps -ef |grep hello_world"
