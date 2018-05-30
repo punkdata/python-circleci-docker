@@ -26,7 +26,8 @@ jobs:
           command: |
             . helloworld/bin/activate
             pyinstaller -F hello_world.py
+            mv project/dist/hello_world /tmp/
       - run:
           name: Deploy to hello.dpunks.org
           command: |
-            scp -o StrictHostKeyChecking=no project/dist/hello_world root@hello.dpunks.org:/tmp/
+            scp -o StrictHostKeyChecking=no /tmp/hello_world root@hello.dpunks.org:/tmp/
