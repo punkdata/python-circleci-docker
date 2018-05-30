@@ -26,7 +26,7 @@ jobs:
           command: |
             . helloworld/bin/activate
             pyinstaller -F hello_world.py
-            mv project/dist/hello_world /tmp/
+            mv ~/project/dist/hello_world /tmp/
       - run:
           name: Deploy to hello.dpunks.org
           command: |
