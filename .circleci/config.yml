@@ -12,9 +12,14 @@ jobs:
             command: |
               virtualenv helloworld
               . helloworld/bin/activate
-              pip install flask
+              pip install flask pyinstaller
         - run:
             name: Run Tests
             command: |
               . helloworld/bin/activate
               python test_hello_world.py
+        - run:
+            name: Build Python Binary
+            command: |
+              . helloworld/bin/activate
+              pyinstaller -F hello_world.py
