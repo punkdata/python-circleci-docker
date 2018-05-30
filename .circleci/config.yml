@@ -6,20 +6,27 @@ jobs:
         environment:
           FLASK_CONFIG: testing
     steps:
-        - checkout
-        - run:
-            name: Create Python VirtualEnv
-            command: |
-              virtualenv helloworld
-              . helloworld/bin/activate
-              pip install flask pyinstaller
-        - run:
-            name: Run Tests
-            command: |
-              . helloworld/bin/activate
-              python test_hello_world.py
-        - run:
-            name: Build Python Binary
-            command: |
-              . helloworld/bin/activate
-              pyinstaller -F hello_world.py
+      - add_ssh_keys: 
+          fingerprints:
+            - 62:b3:b1:c1:7d:56:af:06:db:9b:26:70:98:e2:da:23
+      - checkout
+      - run:
+          name: Create Python VirtualEnv
+          command: |
+            virtualenv helloworld
+            . helloworld/bin/activate
+            pip install flask pyinstaller
+      - run:
+          name: Run Tests
+          command: |
+            . helloworld/bin/activate
+            python test_hello_world.py
+      - run:
+          name: Build Python Binary
+          command: |
+            . helloworld/bin/activate
+            pyinstaller -F hello_world.py
+      - deploy:
+          name: Deploy to Digital Ocean
+          command: |
+            scp project/dist/hello_world root@hello.dpunks.org:/tmp/
