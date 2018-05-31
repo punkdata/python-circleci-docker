@@ -18,7 +18,7 @@ def wrap_html(message):
 
 @app.route('/')
 def hello_world():
-    message = wrap_html('Hello DockerCon')
+    message = wrap_html('Hello DockerCon!')
     return message
 
 if __name__ == '__main__':
