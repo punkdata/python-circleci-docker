@@ -13,7 +13,7 @@ class TestHelloWorld(unittest.TestCase):
 
     def test_HelloWorld_value(self):
         result = self.app.get('/')
-        self.assertEqual(result.data, hello_world.wrap_html('Hello DockerCon'))
+        self.assertEqual(result.data, hello_world.wrap_html('Hello DockerCon!'))
 
 if __name__ == "__main__":
     unittest.main()
