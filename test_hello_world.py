@@ -13,7 +13,7 @@ class HelloWorld(unittest.TestCase):
 
     def test_HelloWorld_value(self):
         result = self.app.get('/')
-        self.assertEqual(result.data, 'Hello World!')
+        self.assertEqual(result.data, hello_world.wrap_html('Hello World'))
 
 if __name__ == "__main__":
     unittest.main()
