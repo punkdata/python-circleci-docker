@@ -15,7 +15,7 @@ def wrap_html(text):
 
 @app.route('/')
 def hello_world():
-    msg = wrap_html('Hello World')
+    msg = wrap_html('Hello World!')
     return msg
 
 if __name__ == '__main__':
