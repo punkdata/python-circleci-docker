@@ -10,11 +10,10 @@ class TestHelloWorld(unittest.TestCase):
     def test_default_route(self):
         response = self.app.get('/')
         self.assertEqual(response.status_code, 200)
-    
-    def test_message(self):
+
+    def test_html_message(self):
         response = self.app.get('/')
-        self.assertEqual(response.data, hello_world.wrap_html('Hello DockerCon 2018!'))
+        self.assertEqual(response.data, hello_world.wrap_html('Hello DockerCon 2018!')
 
 if __name__ == '__main__':
     unittest.main()
-    
