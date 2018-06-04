@@ -7,7 +7,7 @@ class TestHelloWorld(unittest.TestCase):
         self.app = hello_world.app.test_client()
         self.app.testing = True
     
-    def test_default_status(self):
+    def test_status_code(self):
         response = self.app.get('/')
         self.assertEqual(response.status_code, 200)
 
@@ -15,5 +15,5 @@ class TestHelloWorld(unittest.TestCase):
         response = self.app.get('/')
         self.assertEqual(response.data, hello_world.wrap_html('Hello DockerCon 2018!'))
 
-if __name__ = '__main__':
+if __name__ == '__main__':
     unittest.main()
