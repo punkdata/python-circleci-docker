@@ -1,8 +1,6 @@
 version: 2
 jobs:
   build:
-    environment:
-      TAG: 0.1.${CIRCLE_BUILD_NUM}    
     docker:
       - image: circleci/python:2.7.14
         environment:
@@ -15,6 +13,7 @@ jobs:
       - run:
           name: Setup VirtualEnv
           command: |
+            echo 'export TAG:=0.1.${CIRCLE_BUILD_NUM}' >> $BASH_ENV 
             virtualenv helloworld
             . helloworld/bin/activate
             pip install --no-cache-dir -r requirements.txt
