@@ -1,11 +1,12 @@
 version: 2
 jobs:
   build:
+    environment:
+      TAG: 0.1.${CIRCLE_BUILD_NUM}    
     docker:
       - image: circleci/python:2.7.14
         environment:
           FLASK_CONFIG: testing
-          TAG: 0.1.${CIRCLE_BUILD_NUM}
     steps:
       - checkout
       - add_ssh_keys:
@@ -29,7 +30,7 @@ jobs:
           command: |
             . helloworld/bin/activate
             pyinstaller -F hello_world.py
-            TAG="0.1.${CIRCLE_BUILD_NUM}"
+            # TAG="0.1.${CIRCLE_BUILD_NUM}"
             docker build -t ariv3ra/dockercon-demo-2018:$TAG .
             echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
             docker push ariv3ra/dockercon-demo-2018:$TAG
