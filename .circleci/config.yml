@@ -15,7 +15,7 @@ jobs:
           command: |
             virtualenv helloworld
             . helloworld/bin/activate
-            pip install flask pyinstaller
+            pip install --no-cache-dir -r requirements.txt
       - run:
           name: Run Tests
           command: |
