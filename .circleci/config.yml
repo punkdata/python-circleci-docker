@@ -23,15 +23,15 @@ jobs:
             python test_hello_world.py
       - setup_remote_docker
 
-      # This should go into custom primary image, here's only for the sake of explanation
-      - run:
-          name: Install Docker client
-          command: |
-            set -x
-            VER="18.03.1-ce"
-            curl -L -o /tmp/docker-$VER.tgz https://get.docker.com/builds/Linux/x86_64/docker-$VER.tgz
-            tar -xz -C /tmp -f /tmp/docker-$VER.tgz
-            sudo mv /tmp/docker/* /usr/bin
+      # # This should go into custom primary image, here's only for the sake of explanation
+      # - run:
+      #     name: Install Docker client
+      #     command: |
+      #       set -x
+      #       VER="18.03.1-ce"
+      #       curl -L -o /tmp/docker-$VER.tgz https://get.docker.com/builds/Linux/x86_64/docker-$VER.tgz
+      #       tar -xz -C /tmp -f /tmp/docker-$VER.tgz
+      #       sudo mv /tmp/docker/* /usr/bin
 
       - run:
           name: Package app binary
@@ -44,9 +44,9 @@ jobs:
           name: Build and push Docker image
           command: |
             TAG="0.1.${CIRCLE_BUILD_NUM}"
-            docker build -t circleci/cci-demo-docker:$TAG .
+            docker build -t ariv3ra/dockercon-demo-2018:$TAG .
             docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
-            docker push circleci/cci-demo-docker:$TAG
+            docker push ariv3ra/dockercon-demo-2018:$TAG
 
       - run:
           name: Deploy app to Digital Ocean Server
