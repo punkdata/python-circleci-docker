@@ -46,7 +46,7 @@ jobs:
             pyinstaller -F hello_world.py
             TAG="0.1.${CIRCLE_BUILD_NUM}"
             docker build -t ariv3ra/dockercon-demo-2018:$TAG .
-            docker login -u $DOCKER_LOGIN -p $DOCKER_PWD
+            docker login -u $DOCKER_LOGIN --password-stdin $DOCKER_PWD
             docker push ariv3ra/dockercon-demo-2018:$TAG
 
       - run:
