@@ -21,24 +21,8 @@ jobs:
           command: |
             . helloworld/bin/activate
             python test_hello_world.py
-      - setup_remote_docker
-
-      # # This should go into custom primary image, here's only for the sake of explanation
-      # - run:
-      #     name: Install Docker client
-      #     command: |
-      #       set -x
-      #       VER="18.03.1-ce"
-      #       curl -L -o /tmp/docker-$VER.tgz https://get.docker.com/builds/Linux/x86_64/docker-$VER.tgz
-      #       tar -xz -C /tmp -f /tmp/docker-$VER.tgz
-      #       sudo mv /tmp/docker/* /usr/bin
-
-      # - run:
-      #     name: Package app binary
-      #     command: |
-
-      #       # mv ~/project/dist/hello_world
-            
+      - setup_remote_docker:
+          docker_layer_caching: true
       - run:
           name: Build and push Docker image
           command: |
@@ -48,9 +32,8 @@ jobs:
             docker build -t ariv3ra/dockercon-demo-2018:$TAG .
             echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
             docker push ariv3ra/dockercon-demo-2018:$TAG
-
       - run:
-          name: Deploy app to Digital Ocean Server
+          name: Deploy app to Digital Ocean Server via Docker
           command: |
             # scp -o StrictHostKeyChecking=no /tmp/hello_world root@hello.dpunks.org:/tmp/
             ssh -o StrictHostKeyChecking=no root@hello.dpunks.org "/bin/bash ./deploy_app.sh"
