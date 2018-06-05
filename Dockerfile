@@ -5,7 +5,7 @@ RUN mkdir /opt/hello_word/
 WORKDIR /opt/hello_word/
 
 COPY requirements.txt .
-COPY ~/project/dist/hello_world /opt/hello_word/
+COPY dist/hello_world /opt/hello_word/
 RUN pip install --no-cache-dir -r requirements.txt && rm requirements.txt
 
 EXPOSE 80
