@@ -23,5 +23,5 @@ def hello_world():
     html = wrap_html(message)
     return html
 
-if __name__ == '__main_':
+if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

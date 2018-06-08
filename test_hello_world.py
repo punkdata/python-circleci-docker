@@ -2,7 +2,6 @@ import hello_world
 import unittest
 
 class TestHelloWorld(unittest.TestCase):
-    
     def setUp(self):
         self.app = hello_world.app.test_client()
         self.app.testing = True
@@ -15,5 +14,5 @@ class TestHelloWorld(unittest.TestCase):
         response = self.app.get('/')
         self.assertEqual(response.data, 'Hello DockerCon 2018!')
 
-if __name__ == 'main':
+if __name__ == '__main__':
     unittest.main()
