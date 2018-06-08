@@ -15,5 +15,5 @@ class TestHelloWorld(unittest.TestCase):
         response = self.app.get('/')
         self.assertEqual(response.data, 'Hello DockerCon 2018')
     
-if __name__ = '__main__':
+if __name__ == '__main__':
     unittest.main()    
