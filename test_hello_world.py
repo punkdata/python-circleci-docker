@@ -15,5 +15,6 @@ class TestHelloWorld(unittest.TestCase):
         response = self.app.get('/')
         message = hello_world.wrap_html('Hello DockerCon 2018!')
         self.assertEqual(response.data, message)
+
 if __name__ == '__main__':
     unittest.main()
