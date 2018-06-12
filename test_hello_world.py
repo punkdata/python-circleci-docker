@@ -12,7 +12,7 @@ class TestHelloWorld(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
     
     def test_message(self):
-        response = sef.app.get('/')
+        response = self.app.get('/')
         message = hello_world.wrap_html('Hello DockerCon 2018!')
         self.assertEqual(response.data, message)
 
