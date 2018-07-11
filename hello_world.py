@@ -19,7 +19,7 @@ def wrap_html(message):
 
 @app.route('/')
 def hello_world():
-    message = 'Hello DevOps NYC'
+    message = 'Hello DevOps NYC!'
     html = wrap_html(message)
     return html
 
