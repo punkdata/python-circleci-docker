@@ -13,7 +13,7 @@ class TestHelloWorld(unittest.TestCase):
     
     def test_message(self):
         response = self.app.get('/')
-        message = hello_world.wrap_html('Hello DockerCon 2018!')
+        message = hello_world.wrap_html('Hello DevOps NYC!')
         self.assertEqual(response.data, message)
 
 if __name__ == '__main__':
