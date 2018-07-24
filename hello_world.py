@@ -6,7 +6,7 @@ def wrap_html(message):
     html = """
         <html>
         <body>
-            <div style='font-size:120px;'>
+            <div style='font-size:80px;'>
             <center>
                 <image height="544" width="1042" src="https://cdn-1.wp.nginx.com/wp-content/uploads/2018/03/Google-Cloud-Next-18.jpg">
                 <br>
