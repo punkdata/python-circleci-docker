@@ -19,7 +19,7 @@ def wrap_html(message):
 
 @app.route('/')
 def hello_world():
-    message = ''
+    message = 'Hello Google Next 18'
     html = wrap_html(message)
     return html
 
