@@ -8,7 +8,7 @@ def wrap_html(message):
         <body>
             <div style='font-size:120px;'>
             <center>
-                <image height="300" width="600" src="https://secure.meetupstatic.com/photos/event/a/2/e/c/600_463001708.jpeg">
+                <image height="544" width="1042" src="https://cdn-1.wp.nginx.com/wp-content/uploads/2018/03/Google-Cloud-Next-18.jpg">
                 <br>
                 {0}<br>
             </center>
@@ -19,7 +19,7 @@ def wrap_html(message):
 
 @app.route('/')
 def hello_world():
-    message = 'Hello DevOps NYC!'
+    message = ''
     html = wrap_html(message)
     return html
 
