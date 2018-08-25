@@ -34,6 +34,6 @@ jobs:
             echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
             docker push $DOCKER_LOGIN/$IMAGE_NAME:$TAG
       - run:
-          name: Deploy app to Digital Ocean Server via Docker
+          name: Deploy app to Linode Producrion Server via Docker
           command: |
             ssh -o StrictHostKeyChecking=no root@fosscon.punkdata.org "/bin/bash ./deploy_app.sh $DOCKER_LOGIN/$IMAGE_NAME:$TAG"

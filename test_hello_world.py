@@ -13,7 +13,7 @@ class TestHelloWorld(unittest.TestCase):
     
     def test_message(self):
         response = self.app.get('/')
-        message = hello_world.wrap_html('Hello Google Next 18!')
+        message = hello_world.wrap_html('Hello FOSSCON 2018!')
         self.assertEqual(response.data, message)
 
 if __name__ == '__main__':

@@ -8,7 +8,7 @@ def wrap_html(message):
         <body>
             <div style='font-size:80px;'>
             <center>
-                <image height="544" width="1042" src="https://cdn-1.wp.nginx.com/wp-content/uploads/2018/03/Google-Cloud-Next-18.jpg">
+                <image height="191" width="642" src="http://www.geekadelphia.com/wp-content/uploads/2013/08/banner-642x191.png">
                 <br>
                 {0}<br>
             </center>
@@ -19,7 +19,7 @@ def wrap_html(message):
 
 @app.route('/')
 def hello_world():
-    message = 'Hello Google Next 18!'
+    message = 'Hello FOSSCON 2018!'
     html = wrap_html(message)
     return html
 
