@@ -30,10 +30,10 @@ jobs:
           command: |
             . helloworld/bin/activate
             pyinstaller -F hello_world.py
-            docker build -t ariv3ra/$IMAGE_NAME:$TAG .
+            docker build -t $DOCKER_LOGIN/$IMAGE_NAME:$TAG .
             echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
-            docker push ariv3ra/$IMAGE_NAME:$TAG
+            docker push $DOCKER_LOGIN/$IMAGE_NAME:$TAG
       - run:
           name: Deploy app to Digital Ocean Server via Docker
           command: |
-            ssh -o StrictHostKeyChecking=no root@fosson.punkdata.org "/bin/bash ./deploy_app.sh ariv3ra/$IMAGE_NAME:$TAG"
+            ssh -o StrictHostKeyChecking=no root@fosscon.punkdata.org "/bin/bash ./deploy_app.sh $DOCKER_LOGIN/$IMAGE_NAME:$TAG"
