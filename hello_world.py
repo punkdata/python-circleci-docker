@@ -8,7 +8,7 @@ def wrap_html(message):
         <body>
             <div style='font-size:80px;'>
             <center>
-                <image height="191" width="642" src="http://www.geekadelphia.com/wp-content/uploads/2013/08/banner-642x191.png">
+                <image height="600" width="531" src="https://secure.meetupstatic.com/photos/event/2/a/a/3/600_452110915.jpeg">
                 <br>
                 {0}<br>
             </center>
@@ -19,7 +19,7 @@ def wrap_html(message):
 
 @app.route('/')
 def hello_world():
-    message = 'Hello FOSSCON 2018!'
+    message = 'Hello PyLadies Chicago!'
     html = wrap_html(message)
     return html
 
